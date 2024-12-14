@@ -1,62 +1,66 @@
-public class matrix_spiral_print{
+public class matrix_spiral_print {
 
-    public static void spiralPrint(int matrix [][]){
-      int startRow = 0;
-      int startCol = 0;
-      int endRow =   matrix.length-1;
-      int endCol = matrix[0].length-1;
+    // Function to print the matrix in a spiral order
+    public static void spiralPrint(int matrix[][]) {
+        // Define the boundaries of the matrix
+        int startRow = 0; // Starting row
+        int startCol = 0; // Starting column
+        int endRow = matrix.length - 1; // Ending row
+        int endCol = matrix[0].length - 1; // Ending column
 
-      while(startRow <= endRow && startCol <= endCol ){
+        // Loop until the entire matrix is traversed in spiral order
+        while (startRow <= endRow && startCol <= endCol) {
 
-        //printing top part
-        for(int i = startCol; i <= endCol;i++){
-            System.out.print(matrix[startRow][i]+" ");
-        }
-
-        // printint right side part
-        for(int i =startRow+1; i<=endRow; i++){
-            System.out.print(matrix[i][endCol]+" ");
-        }
-
-        // printing bottom part
-        for(int i = endRow-1; i >= startRow; i--){
-            if(startCol == endCol){
-                break;
-           }
-            System.out.print(matrix[endCol][i]+" ");
-        }
-
-        // printing left side part
-        for(int i = endRow-1; i>= startRow+1; i--){
-            if(startRow == endRow){
-                 break;
+            // 1. Print the top part (left to right on the current top row)
+            for (int i = startCol; i <= endCol; i++) {
+                System.out.print(matrix[startRow][i] + " ");
             }
-            System.out.print(matrix[i][startCol]+" ");
+
+            // 2. Print the right side (top to bottom on the current right column)
+            for (int i = startRow + 1; i <= endRow; i++) {
+                System.out.print(matrix[i][endCol] + " ");
+            }
+
+            // 3. Print the bottom part (right to left on the current bottom row)
+            for (int i = endCol - 1; i >= startCol; i--) {
+                // Prevent re-printing if there's only one column left
+                if (startRow == endRow) {
+                    break;
+                }
+                System.out.print(matrix[endRow][i] + " ");
+            }
+
+            // 4. Print the left side (bottom to top on the current left column)
+            for (int i = endRow - 1; i >= startRow + 1; i--) {
+                // Prevent re-printing if there's only one row left
+                if (startCol == endCol) {
+                    break;
+                }
+                System.out.print(matrix[i][startCol] + " ");
+            }
+
+            // Move the boundaries inward for the next layer
+            startRow++;
+            startCol++;
+            endRow--;
+            endCol--;
+
+            // Print a newline for better readability of output
+            System.out.println();
         }
-
-        startRow++;
-        startCol++;
-        endRow--;
-        endCol--;
-
-        System.out.println();
-      }
-
     }
-    
 
-    public static void main(String args[]){
-
-        int matrix [][] = { 
+    public static void main(String args[]) {
+        // Sample 5x5 matrix
+        int matrix[][] = { 
             {1, 2, 3, 4, 5},
             {6, 7, 8, 9, 10},
-            {11,12,13,14,15},
-            {16,17,18,19,20},
-            {21,22,23,24,25}
+            {11, 12, 13, 14, 15},
+            {16, 17, 18, 19, 20},
+            {21, 22, 23, 24, 25}
+        };
 
-        };   
-        
+        // Call the function to print the matrix in spiral order
         spiralPrint(matrix);
     }
-    
 }
