@@ -1,44 +1,36 @@
-public class subArray_sum {
+public class SubArraySum {
 
+    // Method to calculate and print all subarrays and their sums
     public static void subarray_sum(int num[]) {
         
-        
+        // Outer loop to select the starting index of subarray
         for (int i = 0; i < num.length; i++) {
-            int a = 0;
-            int sum = 0;
-            int start = i;
+            int sum = 0; // Sum of the current subarray
 
+            // Inner loop to select the ending index of subarray
             for (int j = i; j < num.length; j++) {
                 
-                int end = j;
-
-                for (int k = start; k <= end; k++) {
-
-                    System.out.print(num[k]+"   ");
-                    a = num[k];
-                }
-                sum+=a; 
-                System.out.print( "Sum of this Subarray : " + sum);
-                System.out.println();
-
-
-
+                // Print the current element of the subarray
+                System.out.print(num[j] + "   ");
+                
+                // Add the current element to sum
+                sum += num[j];
             }
-            System.out.println();
 
+            // Print the sum of the current subarray
+            System.out.println("Sum of this Subarray : " + sum);
         }
     }
 
     public static void main(String args[]) {
-
+        // Test array
         int num[] = { 1, 2, 3, 4, 5 };
-        int n = num.length;
+
+        // Call the method to print subarrays and their sums
         subarray_sum(num);
 
-        System.out.println("Total number of arrays = " + (n * (n + 1)) / 2);
-
-        
-
+        // Calculate and print the total number of subarrays
+        int n = num.length;
+        System.out.println("Total number of subarrays = " + (n * (n + 1)) / 2);
     }
-
 }
