@@ -29,3 +29,9 @@ public class BubbleSort {
         }
     }
 }
+
+
+Time Complexity:
+Best Case: O(n) if the array is already sorted (due to the swapped flag).
+Worst Case: O(n²) for a reverse-sorted array, which is the typical performance for Bubble Sort.
+Space Complexity: O(1), as Bubble Sort is an in-place sorting algorithm.
