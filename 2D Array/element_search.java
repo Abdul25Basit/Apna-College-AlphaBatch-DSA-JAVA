@@ -72,3 +72,19 @@ public class element_search { // Class to perform element search and find larges
         largest_smallest(matrix);
     }
 }
+
+
+/*Enter elements for the 3x3 matrix:
+1 2 3
+4 7 6
+8 9 5
+
+The entered matrix is:
+1 2 3
+4 7 6
+8 9 5
+
+We found the key at: [1][1]
+Largest element is: 9
+Smallest element is: 1
+*/
