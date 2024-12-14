@@ -64,3 +64,24 @@ public class matrix_spiral_print {
         spiralPrint(matrix);
     }
 }
+
+
+Explanation of Code Logic:
+Boundary Variables:
+
+startRow and startCol: Represent the top-left corner of the remaining sub-matrix.
+endRow and endCol: Represent the bottom-right corner of the remaining sub-matrix.
+These variables are updated inward after each spiral layer.
+Traversal Steps:
+
+Top Part: Print elements in the top row from startCol to endCol.
+Right Part: Print elements in the rightmost column from startRow + 1 to endRow.
+Bottom Part: Print elements in the bottom row from endCol - 1 to startCol (only if startRow != endRow).
+Left Part: Print elements in the leftmost column from endRow - 1 to startRow + 1 (only if startCol != endCol).
+Boundary Updates:
+
+After printing one layer of the spiral, increment startRow and startCol and decrement endRow and endCol to move to the next inner layer.
+Edge Cases:
+
+Single row or column: Avoid re-printing the same elements by using conditions like if (startRow == endRow) and if (startCol == endCol).
+
